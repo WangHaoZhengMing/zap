@@ -25,8 +25,9 @@
         if invert {
             if style.invert-style == "circle" {
                 let radius = style.invert-width * 0.4
-                circle((style.width / 2 + radius, 0), radius: radius, fill: style.fill, stroke: style.stroke)
-                anchor("out", (style.width / 2 + 2 * radius, 0))
+                let spacing = style.invert-width * 0.05
+                circle((style.width / 2 + radius + spacing, 0), radius: radius, fill: style.fill, stroke: style.stroke)
+                anchor("out", (style.width / 2 + 2 * radius + spacing, 0))
             } else {
                 line((style.width / 2, style.invert-height), (rel: (style.invert-width, -style.invert-height)))
                 line((style.width / 2, 0), (rel: (style.invert-width, 0)))
