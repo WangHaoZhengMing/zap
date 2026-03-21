@@ -25,7 +25,7 @@
 #import "components/diode.typ": diode, led, photodiode, schottky, tunnel, zener
 #import "components/switch.typ": switch
 #import "components/fuse.typ": afuse, fuse
-#import "components/supply.typ": earth, frame, ground, vcc, vee
+#import "components/supply.typ": earth, frame, ground, rground, vcc, vee
 #import "components/inductor.typ": inductor
 #import "components/logic.typ": land, lnand, lnor, lnot, lor, lxnor, lxor
 #import "components/resistor.typ": heater, potentiometer, resistor, rheostat
