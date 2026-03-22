@@ -223,6 +223,13 @@
         radius: 0.22,
         distance: 0.28,
     ),
+    rground: (
+        variant: auto,
+        scale: auto,
+        stroke: auto,
+        width: .53,
+        distance: .28,
+    ),
     frame: (
         variant: auto,
         scale: auto,

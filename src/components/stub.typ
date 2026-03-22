@@ -36,7 +36,6 @@
         wire((0, 0), (rel: diff))
     }
 
-
     // Component call
     component("stub", "l", node, draw: draw, ..args)
 }
