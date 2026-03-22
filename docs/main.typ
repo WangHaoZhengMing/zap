@@ -1264,6 +1264,8 @@ The `diode` symbol accepts only one parameter, called `type`, and its appearance
     ),
 )
 
+The `invert` option also accepts `"wedge"` as a value for specific use cases. This will display a wedge instead of the classic bubble at the symbol output.
+
 #info(
     title: [Inputs],
 )[When setting a number of inputs, each input will be available at `inX` anchor. For example, for three inputs you will have access to `l1.in1`, `l1.in2` and `l1.in3`.]
