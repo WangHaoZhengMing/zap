@@ -915,12 +915,13 @@ The `diode` symbol accepts only one parameter, called `type`, and its appearance
     #zap.circuit({
         import zap: *
 
-        wire((0, 0), (8, 0))
+        wire((0, 0), (10, 0))
         vcc("s1", (0, 0))
         vee("s2", (2, 0))
         earth("s3", (4, 0))
         frame("s4", (6, 0))
         ground("s5", (8, 0))
+        rground("s6", (10, 0))
     })
     ```,
 )

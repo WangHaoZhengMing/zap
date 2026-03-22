@@ -9,6 +9,7 @@
     ground("gnd", (2, 0))
     frame("fr", (3, 0))
     earth("ea", (4, 0))
+    rground("rg", (5, 0))
 })
 
 // Test label position
@@ -26,7 +27,8 @@
     ground("gnd", (2, 0))
     frame("fr", (3, 0))
     earth("ea", (4, 0))
-    wire("vcc", "vee", "gnd", "fr", "ea")
+    rground("rg", (5, 0))
+    wire("vcc", "vee", "gnd", "fr", "ea", "rg")
 })
 
 // Test styling

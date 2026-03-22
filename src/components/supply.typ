@@ -9,7 +9,16 @@
     // Drawing function
     let draw(ctx, position, style) = {
         wire((0, 0), (0, -style.distance))
-        polygon((0, -style.distance), 3, anchor: "north", radius: style.radius, angle: -90deg, name: "polygon", stroke: style.stroke, fill: style.fill)
+        polygon(
+            (0, -style.distance),
+            3,
+            anchor: "north",
+            radius: style.radius,
+            angle: -90deg,
+            name: "polygon",
+            stroke: style.stroke,
+            fill: style.fill,
+        )
 
         let (width, height) = cetz.util.measure(ctx, "polygon")
         interface((-width / 2, -height / 2), (width / 2, height / 2))
@@ -31,7 +40,9 @@
         set-style(stroke: style.stroke)
         line((-style.width / 2, -style.distance), (style.width / 2, -style.distance))
         for i in (0, 1, 2) {
-            line((-style.width / 2 + (1 - i) * .01 + i * delta, -style.distance), (rel: (angle: -style.angle - 90deg, radius: style.depth)))
+            line((-style.width / 2 + (1 - i) * .01 + i * delta, -style.distance), (
+                rel: (angle: -style.angle - 90deg, radius: style.depth),
+            ))
         }
 
         interface((-style.width / 2, style.distance), (style.width / 2, -style.distance))
@@ -49,7 +60,11 @@
     let draw(ctx, position, style) = {
         wire((0, 0), (0, -style.distance))
         for i in (0, 1, 2) {
-            line((-style.width / 2 + i * style.delta, -style.distance - i * style.spacing), (style.width / 2 - i * style.delta, -style.distance - i * style.spacing), ..style)
+            line(
+                (-style.width / 2 + i * style.delta, -style.distance - i * style.spacing),
+                (style.width / 2 - i * style.delta, -style.distance - i * style.spacing),
+                ..style,
+            )
         }
 
         interface((-style.width / 2, -style.distance - style.spacing * 2), (style.width / 2, -style.distance))
@@ -84,6 +99,22 @@
         label-defaults: if invert { (anchor: "south", align: "north") } else { (:) },
         ..params,
     )
+}
+
+#let rground(name, node, ..params) = {
+    assert(params.pos().len() == 0, message: "earth supports only one node")
+
+    // Drawing function
+    let draw(ctx, position, style) = {
+        wire((0, 0), (0, -style.distance))
+        line((-style.width / 2, -style.distance), (style.width / 2, -style.distance))
+
+        interface((-style.width / 2, style.distance), (style.width / 2, -style.distance))
+        anchor("default", (0, 0))
+    }
+
+    // Component call
+    component("rground", name, node, draw: draw, ..params)
 }
 
 #let vcc(name, node, ..params) = vsupply("vcc", name, node, ..params)
