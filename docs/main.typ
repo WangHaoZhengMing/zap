@@ -915,7 +915,7 @@ The `diode` symbol accepts only one parameter, called `type`, and its appearance
     #zap.circuit({
         import zap: *
 
-        wire((0, 0), (8, 0))
+        wire((0, 0), (10, 0))
         vcc("s1", (0, 0))
         vee("s2", (2, 0))
         earth("s3", (4, 0))
