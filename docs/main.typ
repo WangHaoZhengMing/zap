@@ -921,6 +921,7 @@ The `diode` symbol accepts only one parameter, called `type`, and its appearance
         earth("s3", (4, 0))
         frame("s4", (6, 0))
         ground("s5", (8, 0))
+        rground("s6", (10, 0))
     })
     ```,
 )
