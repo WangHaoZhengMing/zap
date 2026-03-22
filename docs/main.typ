@@ -1219,8 +1219,6 @@ The `diode` symbol accepts only one parameter, called `type`, and its appearance
 
 == Logic <logic>
 
-Use `set-style(logic: (invert-style: "circle"))` to render IEC inversion bubbles (European-style) on inverted logic gates.
-
 #circ(
     ```typst
     #import "./zap.typ"
@@ -1253,18 +1251,6 @@ Use `set-style(logic: (invert-style: "circle"))` to render IEC inversion bubbles
             land("b1", (0, 0), invert: true)
         }),
     ),
-    // invert-style
-    `invert-style`,
-    `"triangle"`,
-    none,
-    html.frame(
-        zap.circuit({
-            import zap: *
-
-            set-style(logic: (invert-style: "circle"))
-            lnor("b1", (0, 0))
-        }),
-    ),
     // inputs
     `inputs`,
     `2`,
@@ -1277,6 +1263,8 @@ Use `set-style(logic: (invert-style: "circle"))` to render IEC inversion bubbles
         }),
     ),
 )
+
+The `invert` option also accepts `"wedge"` as a value for specific use cases. This will display a wedge instead of the classic bubble at the symbol output.
 
 #info(
     title: [Inputs],
