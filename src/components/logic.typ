@@ -4,6 +4,7 @@
 
 #let logic(name, node, text: $"&"$, invert: false, inputs: 2, ..params) = {
     assert(inputs >= 2, message: "logic supports minimum two inputs")
+    assert(invert in (true, false, "wedge"), message: "invert should be boolean or 'wedge'")
 
     // Drawing function
     let draw(ctx, position, style) = {
@@ -17,10 +18,15 @@
             anchor("in" + str(input), (-style.width / 2, height / 2 - style.padding - (input - 1) * style.spacing))
         }
 
-        if invert {
+        if invert == true {
+            let radius = style.invert-width * 0.4
+            let spacing = style.invert-width * 0.05
+            circle((style.width / 2 + radius + spacing, 0), radius: radius, fill: style.fill, stroke: style.stroke)
+            anchor("out", (style.width / 2 + 2 * radius + spacing, 0))
+        } else if invert == "wedge" {
             line((style.width / 2, style.invert-height), (rel: (style.invert-width, -style.invert-height)))
             line((style.width / 2, 0), (rel: (style.invert-width, 0)))
-            anchor("out", ())
+            anchor("out", (style.width / 2 + style.invert-width, 0))
         } else {
             anchor("out", (style.width / 2, 0))
         }

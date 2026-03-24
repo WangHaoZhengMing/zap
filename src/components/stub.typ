@@ -50,7 +50,6 @@
         }
     }
 
-
     // Component call
     component("stub", "l", node, draw: draw, ..args)
 }
