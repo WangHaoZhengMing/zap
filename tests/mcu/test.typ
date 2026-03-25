@@ -66,8 +66,8 @@
         (content: "10", side: "east"),
         (content: "9", side: "east"),
     )
-    
-    mcu("u1", (0, 0), pins: p, label: [*74LS138*],width: 2)
+
+    mcu("u1", (0, 0), pins: p, label: [*74LS138*], width: 2)
     wstub("u1.pin1", label: $A$)
     wstub("u1.pin2", label: $B$)
     wstub("u1.pin3", label: $C$)
@@ -76,8 +76,8 @@
     wstub("u1.pin6", label: $G_1$)
     wstub("u1.pin7", label: $overline(Y)_7$, invert: true)
     wstub("u1.pin8", label: "GND")
-    
-    estub("u1.pin9",  label: $U_"CC"$)
+
+    estub("u1.pin9", label: $U_"CC"$)
     estub("u1.pin10", label: $overline(Y)_0$, invert: true)
     estub("u1.pin11", label: $overline(Y)_1$, invert: true)
     estub("u1.pin12", label: $overline(Y)_2$, invert: true)
@@ -86,6 +86,35 @@
     estub("u1.pin15", label: $overline(Y)_5$, invert: true)
     estub("u1.pin16", label: $overline(Y)_6$, invert: true)
 })
+
+// Test wedge symbol (active-low) in all directions
+#test({
+    import lib: *
+
+    let p = (
+        (content: "1", side: "west"),
+        (content: "2", side: "west"),
+        (content: "3", side: "west"),
+        (content: "4", side: "west"),
+        (content: "5", side: "east"),
+        (content: "6", side: "east"),
+        (content: "7", side: "east"),
+        (content: "8", side: "east"),
+    )
+
+    mcu("u1", (0, 0), pins: p, width: 2)
+    wstub("u1.pin1", label: $overline(W)_1$, invert: "wedge")
+    wstub("u1.pin2", label: $overline(W)_2$, invert: "wedge")
+    wstub("u1.pin3", label: $overline(W)_3$, invert: "wedge")
+    wstub("u1.pin4", label: $overline(W)_4$, invert: "wedge")
+
+    estub("u1.pin5", label: $overline(E)_1$, invert: "wedge")
+    estub("u1.pin6", label: $overline(E)_2$, invert: "wedge")
+    estub("u1.pin7", label: $overline(E)_3$, invert: "wedge")
+    estub("u1.pin8", label: $overline(E)_4$, invert: "wedge")
+})
+
+
 
 // Test styling
 #test({

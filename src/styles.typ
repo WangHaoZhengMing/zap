@@ -167,7 +167,10 @@
     stub: (
         scale: auto,
         length: .8,
+        invert-width: 0.15,
+        invert-height: 0.12,
     ),
+
     capacitor: (
         variant: auto,
         scale: auto,
